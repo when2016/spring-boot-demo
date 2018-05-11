@@ -57,5 +57,20 @@
     </plugins>
   </build>
 
+  <!-- nexus私服配置 -->
+  <repositories>
+    <repository>
+      <id>nexus</id>
+      <name>nexus</name>
+      <url>http://maven.shengnian.org/repository/maven-public/</url>
+      <releases>
+        <enabled>true</enabled>
+      </releases>
+      <!--snapshots默认是关闭的,需要开启  -->
+      <snapshots>
+        <enabled>true</enabled>
+      </snapshots>
+    </repository>
+  </repositories>
 
 </project>
