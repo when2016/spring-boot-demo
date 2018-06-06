@@ -15,10 +15,14 @@ import javax.servlet.http.HttpServletResponse;
 import org.apache.http.HttpResponse;
 import org.apache.http.client.methods.HttpGet;
 import org.apache.http.impl.client.DefaultHttpClient;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RestController;
 
 /**
  * Created by wang on 2018/6/3
  */
+@RestController
 public class OssCallbackController {
 
   protected void doGet(HttpServletRequest request, HttpServletResponse response)
@@ -113,7 +117,8 @@ public class OssCallbackController {
     return ret;
   }
 
-  protected void doPost(HttpServletRequest request, HttpServletResponse response)
+  @RequestMapping(value = "/callback", method = {RequestMethod.GET, RequestMethod.POST})
+  public void doPost(HttpServletRequest request, HttpServletResponse response)
       throws ServletException, IOException {
     String ossCallbackBody = GetPostBody(request.getInputStream(), Integer.parseInt(request.getHeader("content-length")));
     boolean ret = VerifyOSSCallbackRequest(request, ossCallbackBody);

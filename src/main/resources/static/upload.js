@@ -4,7 +4,7 @@ accesskey = ''
 host = ''
 policyBase64 = ''
 signature = ''
-callbackbody = 'hello';
+callbackbody = '';
 filename = ''
 key = ''
 expire = 0
@@ -194,6 +194,7 @@ var uploader = new plupload.Uploader({
 		},
 
 		FileUploaded: function(up, file, info) {
+		    console.log(file.name);
             if (info.status == 200)
             {
                 document.getElementById(file.id).getElementsByTagName('b')[0].innerHTML = 'upload to oss success, object name:' + get_uploaded_object_name(file.name) + ' 回调服务器返回的内容是:' + info.response;

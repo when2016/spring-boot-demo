@@ -65,7 +65,12 @@ public class OssUploaderController {
 
   private void response(HttpServletRequest request, HttpServletResponse response, String results)
       throws IOException {
+
+    System.out.println("results==" + results);
     String callbackFunName = request.getParameter("callback");
+    System.out.println("callbackFunName==" + callbackFunName);
+    //callbackFunName="http://wang.tunnel.shengnian.org/hello";
+
     if (callbackFunName == null || callbackFunName.equalsIgnoreCase("")) {
       response.getWriter().println(results);
     } else {
