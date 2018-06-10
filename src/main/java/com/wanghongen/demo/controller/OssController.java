@@ -62,7 +62,9 @@ public class OssController {
   @RequestMapping(value = "oss/policy")
   public String createPolicy() {
 
-    return PostObjectPolicy.createPolicy("images/").toString();
+    String jsonStr = PostObjectPolicy.createPolicy("images/").toString();
+    System.out.println(jsonStr);
+    return jsonStr;
 
   }
 

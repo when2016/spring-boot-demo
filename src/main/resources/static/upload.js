@@ -194,7 +194,10 @@ var uploader = new plupload.Uploader({
 		},
 
 		FileUploaded: function(up, file, info) {
-		    console.log(file.name);
+		    console.log(up);
+		    console.log("file.name="+file.name);
+		    console.log(file);
+		    console.log(info);
             if (info.status == 200)
             {
                 document.getElementById(file.id).getElementsByTagName('b')[0].innerHTML = 'upload to oss success, object name:' + get_uploaded_object_name(file.name) + ' 回调服务器返回的内容是:' + info.response;
