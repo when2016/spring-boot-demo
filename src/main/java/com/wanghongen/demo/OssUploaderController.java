@@ -11,11 +11,18 @@ import java.util.Map;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import net.sf.json.JSONObject;
+import org.apache.commons.codec.binary.Base64;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 /**
+ * https://blog.csdn.net/yxwb1253587469/article/details/72529311
+ *
+ * https://blog.csdn.net/mian_CSDN/article/details/53363779
+ * https://gitee.com/liumian/ali_cloud_oss_upload_callback
+ *
+ *
  * Created by wang on 2018/6/3
  */
 
@@ -32,6 +39,8 @@ public class OssUploaderController {
     String host = "http://" + bucket + "." + endpoint;
     String callback = "http://wang.tunnel.shengnian.org/callback";
     OSSClient client = new OSSClient(endpoint, accessId, accessKey);
+
+
     try {
       long expireTime = 30;
       long expireEndTime = System.currentTimeMillis() + expireTime * 1000;
@@ -53,7 +62,9 @@ public class OssUploaderController {
       respMap.put("dir", dir);
       respMap.put("host", host);
       respMap.put("expire", String.valueOf(expireEndTime / 1000));
-      respMap.put("callback",callback);
+
+      byte[] bytes = Base64.encodeBase64(callback.getBytes("utf-8"));
+      respMap.put("callback",new String(bytes));
       JSONObject ja1 = JSONObject.fromObject(respMap);
       System.out.println(ja1.toString());
       response.setHeader("Access-Control-Allow-Origin", "*");
@@ -71,7 +82,7 @@ public class OssUploaderController {
     System.out.println("results==" + results);
     String callbackFunName = request.getParameter("callback");
     System.out.println("callbackFunName==" + callbackFunName);
-    callbackFunName="http://wang.tunnel.shengnian.org/callback";
+    //callbackFunName="http://wang.tunnel.shengnian.org/callback";
 
     if (callbackFunName == null || callbackFunName.equalsIgnoreCase("")) {
       response.getWriter().println(results);
