@@ -30,6 +30,7 @@ public class OssUploaderController {
     String bucket = "wanghongen";
     String dir = "images/";
     String host = "http://" + bucket + "." + endpoint;
+    String callback = "http://wang.tunnel.shengnian.org/callback";
     OSSClient client = new OSSClient(endpoint, accessId, accessKey);
     try {
       long expireTime = 30;
@@ -52,6 +53,7 @@ public class OssUploaderController {
       respMap.put("dir", dir);
       respMap.put("host", host);
       respMap.put("expire", String.valueOf(expireEndTime / 1000));
+      respMap.put("callback",callback);
       JSONObject ja1 = JSONObject.fromObject(respMap);
       System.out.println(ja1.toString());
       response.setHeader("Access-Control-Allow-Origin", "*");
@@ -69,7 +71,7 @@ public class OssUploaderController {
     System.out.println("results==" + results);
     String callbackFunName = request.getParameter("callback");
     System.out.println("callbackFunName==" + callbackFunName);
-    //callbackFunName="http://wang.tunnel.shengnian.org/hello";
+    callbackFunName="http://wang.tunnel.shengnian.org/callback";
 
     if (callbackFunName == null || callbackFunName.equalsIgnoreCase("")) {
       response.getWriter().println(results);
