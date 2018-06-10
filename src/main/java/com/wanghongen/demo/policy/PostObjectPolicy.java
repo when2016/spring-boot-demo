@@ -57,11 +57,14 @@ public class PostObjectPolicy {
         respMap.put("expire", String.valueOf(expireEndTime / 1000));
 
         JSONObject callback = new JSONObject();
-        callback.put("callbackUrl","http://wang.tunnel.shengnian.org/callback");
+        callback.put("callbackUrl","http://wang.tunnel.shengnian.org/oss/callback");
         callback.put("callbackBody","{\"mobile\":13811244507,\"purpose\":100");
+
+        System.out.println(respMap.toString());
 
         BASE64Encoder encoder = new BASE64Encoder();
         respMap.put("callback", encoder.encode(callback.toString().getBytes()));
+
 
         //return new JSONObject(respMap);
         return JSONObject.fromObject(respMap);

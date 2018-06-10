@@ -31,6 +31,15 @@ public class OssController {
       HttpServletRequest request,
       HttpServletResponse response) {
 
+    System.out.println("oss/callback------------------");
+    System.out.println(ossCallbackBody);
+    System.out.println(authorization);
+    System.out.println(callbackMethodName);
+    System.out.println(publicKeyUrlBase64);
+    System.out.println(request.getQueryString());
+    System.out.println(request.getRequestURI());
+
+
     boolean isOssCallback = CallbackUtil.verifyOSSCallbackRequest(authorization
         , publicKeyUrlBase64
         , ossCallbackBody
