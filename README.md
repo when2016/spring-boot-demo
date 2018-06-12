@@ -8,3 +8,10 @@ https://github.com/lichenyigit/java.aliyun.oss.demo
 
 #####springboot ossuplader
 #####https://gitee.com/liumian/ali_cloud_oss_upload_callback
+
+
+
+
+#####服务器列表
+##### 1. 测试服 ssh root@120.55.53.228 华东1 20180511@sq
+##### 2. 王红恩 
