@@ -13,5 +13,5 @@ https://github.com/lichenyigit/java.aliyun.oss.demo
 
 
 #####服务器列表
-##### 1. 测试服 ssh root@120.55.53.228 华东1 20180511@sq
+##### 1. 测试服 ssh root@120.55.53.228 华东1 20180511
 ##### 2. 王红恩 
