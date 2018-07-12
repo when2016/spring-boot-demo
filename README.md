@@ -27,3 +27,14 @@ http://signin.aliyun.com/online-heixiong/login.htm
 
 mongodb,oss
 https://signin.aliyun.com/heixiong-test/login.htm?
+
+
+#####20180707
+1.aop实现原理
+2.spring 事务的传播途径
+3.springboot启动过程
+4.你对自己的定位
+5.你的优点缺点
+6.currentHashmap原理
+7.策略模式，责任链模式
+8.innodb实现原理
