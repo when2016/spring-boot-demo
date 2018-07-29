@@ -116,6 +116,13 @@
       <version>1.1.1</version>
     </dependency>
 
+    <dependency>
+      <groupId>org.scala-lang</groupId>
+      <artifactId>scala-library</artifactId>
+      <version>${scala.version}</version>
+    </dependency>
+
+
 
     <dependency>
       <groupId>org.apache.spark</groupId>
@@ -142,11 +149,7 @@
       <artifactId>spark-streaming-kafka_2.10</artifactId>
       <version>1.5.2</version>
     </dependency>
-    <dependency>
-      <groupId>org.scala-lang</groupId>
-      <artifactId>scala-library</artifactId>
-      <version>2.11.6</version>
-    </dependency>
+
 
 
   </dependencies>
