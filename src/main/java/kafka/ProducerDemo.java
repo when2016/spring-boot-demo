@@ -1,7 +1,9 @@
-package com.wanghongen.demo.kafka;
+package kafka;
 
-import java.util.Date;
+import java.text.DecimalFormat;
 import java.util.Properties;
+import java.util.Random;
+import lombok.val;
 import org.apache.kafka.clients.producer.KafkaProducer;
 import org.apache.kafka.clients.producer.Producer;
 import org.apache.kafka.clients.producer.ProducerRecord;
@@ -23,9 +25,25 @@ public class ProducerDemo {
     props.put("key.serializer", "org.apache.kafka.common.serialization.StringSerializer");
     props.put("value.serializer", "org.apache.kafka.common.serialization.StringSerializer");
 
+    String[] users = new String[]{"jack", "leo", "andy", "lucy", "jim", "smith", "iverson",
+        "andrew"};
+    String[] pages = new String[]{"iphone4.html", "huawei.html", "mi.html", "mac.html", "note.html",
+        "book.html", "fanlegefan.com"};
+    Random random = new Random();
+    int num = 100;
+    val df = new DecimalFormat("#.00");
+
     Producer<String, String> producer = new KafkaProducer<>(props);
-    for (int i = 0; i < 100; i++)
-      producer.send(new ProducerRecord<>("kafkatest", Integer.toString(i)+"aaaa", Integer.toString(i)+"--bb-aa--"+new Date().toInstant()));
+    for (int i = 0; i < num; i++) {
+
+      String message =
+          users[random.nextInt(users.length)] + "," + pages[random.nextInt(pages.length)] +
+              "," + df.format(random.nextDouble() * 1000) + "," + System.currentTimeMillis();
+
+      //producer.send(new ProducerRecord[String, String]("test", Integer.toString(i),message))
+
+      producer.send(new ProducerRecord<>("kafkatest", message));
+    }
 
     producer.close();
   }
