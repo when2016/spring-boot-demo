@@ -8,8 +8,8 @@ public class HelloController {
 
   @GetMapping("/hello")
   public String hello() {
-    System.out.println("///////////////////////////////hello////////////");
-    return "Welcome to spring boot";
+    System.out.println("///////////////////abcd////////////hello////////////");
+    return "Welcome to spring boot xxxxx ssss";
   }
 
 }
