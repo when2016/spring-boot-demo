@@ -1,4 +1,4 @@
-package com.wanghongen.demo;
+package com.wanghongen.demo.controller;
 
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -9,7 +9,7 @@ public class HelloController {
   @GetMapping("/hello")
   public String hello() {
     System.out.println("///////////////////////////////hello////////////");
-    return "Welcome to reactive world";
+    return "Welcome to spring boot";
   }
 
 }
