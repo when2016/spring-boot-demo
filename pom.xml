@@ -21,28 +21,54 @@
     <relativePath/>
   </parent>
 
+  <!--<dependencyManagement>-->
+    <!--<dependencies>-->
+      <!--<dependency>-->
+        <!--&lt;!&ndash; Import dependency management from Spring Boot &ndash;&gt;-->
+        <!--<groupId>org.springframework.boot</groupId>-->
+        <!--<artifactId>spring-boot-dependencies</artifactId>-->
+        <!--<version>1.5.9.RELEASE</version>-->
+        <!--<type>pom</type>-->
+      <!--</dependency>-->
+    <!--</dependencies>-->
+  <!--</dependencyManagement>-->
+
+
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
     <java.version>1.8</java.version>
-
     <spring.boot.version>1.5.1.RELEASE</spring.boot.version>
-
     <lombok.version>1.16.10</lombok.version>
-
     <log4j.version>1.2.17</log4j.version>
     <slf4j.version>1.7.13</slf4j.version>
-
     <scala.version>2.11.5</scala.version>
     <scala.compat.version>2.11</scala.compat.version>
 
   </properties>
 
+
+
+
   <dependencies>
     <dependency>
       <groupId>org.springframework.boot</groupId>
       <artifactId>spring-boot-starter-web</artifactId>
+      <!--<exclusions>-->
+        <!--<exclusion>-->
+          <!--<groupId>org.springframework.boot</groupId>-->
+          <!--<artifactId>spring-boot-starter-tomcat</artifactId>-->
+        <!--</exclusion>-->
+      <!--</exclusions>-->
     </dependency>
+
+    <!-- https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-undertow -->
+    <!--<dependency>-->
+      <!--<groupId>org.springframework.boot</groupId>-->
+      <!--<artifactId>spring-boot-starter-undertow</artifactId>-->
+    <!--</dependency>-->
+
+
 
     <dependency>
       <groupId>org.springframework.boot</groupId>
@@ -115,15 +141,11 @@
       <artifactId>kafka_2.12</artifactId>
       <version>1.1.1</version>
     </dependency>
-
     <dependency>
       <groupId>org.scala-lang</groupId>
       <artifactId>scala-library</artifactId>
       <version>${scala.version}</version>
     </dependency>
-
-
-
     <dependency>
       <groupId>org.apache.spark</groupId>
       <artifactId>spark-core_2.10</artifactId>
@@ -149,8 +171,6 @@
       <artifactId>spark-streaming-kafka_2.10</artifactId>
       <version>1.5.2</version>
     </dependency>
-
-
 
   </dependencies>
 
