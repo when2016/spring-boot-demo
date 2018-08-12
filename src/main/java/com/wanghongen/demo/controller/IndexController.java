@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
  *
  * 默认的HTML
  *
- * @author liumian  2017/8/18 下午1:36
+ * @author wang  2017/8/11 下午1:36
  */
 @Controller
 public class IndexController {
