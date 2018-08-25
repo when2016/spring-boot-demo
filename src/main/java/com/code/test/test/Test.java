@@ -16,7 +16,8 @@ public class Test {
     }
     data = null;
     if(data.indexOf("a") > -1) {
-
+      System.out.println(data.indexOf("a"));
     }
+    System.out.println(data);
   }
 }
