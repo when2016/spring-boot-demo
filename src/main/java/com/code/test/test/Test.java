@@ -11,7 +11,8 @@ public class Test {
     String data = "abcdefj";
     if(data.indexOf("a") >-1 ) {
       System.out.println(data.indexOf("a"));
-      System.out.println(data.indexOf("ab"));
+      System.out.println(data.indexOf("ddab"));
+      System.out.println(data.indexOf("ddddab"));
       System.out.println(data.indexOf("bc"));
     }
     data = null;
@@ -23,6 +24,7 @@ public class Test {
       System.out.println(data.indexOf("a"));
       System.out.println(data.indexOf("sfafdssadfdsfsda"));
       System.out.println(data.indexOf("a"));
+      System.out.println(data.indexOf("dsafdsfsdafsdfasdfa"));
     }
     System.out.println(data);
     System.out.println(data);
