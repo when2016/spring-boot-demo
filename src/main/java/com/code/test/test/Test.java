@@ -16,8 +16,22 @@ public class Test {
     }
     data = null;
     if(data.indexOf("a") > -1) {
+      System.out.println(data.indexOf("fasfasfsafafsdfsfa"));
+      System.out.println(data.indexOf("a"));
+      System.out.println(data.indexOf("a"));
+      System.out.println(data.indexOf("bdfdsfafsdafsa"));
+      System.out.println(data.indexOf("a"));
+      System.out.println(data.indexOf("sfafdssadfdsfsda"));
       System.out.println(data.indexOf("a"));
     }
+    System.out.println(data);
+    System.out.println(data);
+    System.out.println(data);
+    System.out.println(data);
+    System.out.println(data);
+    System.out.println(data);
+    System.out.println(data);
+    System.out.println(data);
     System.out.println(data);
   }
 }
