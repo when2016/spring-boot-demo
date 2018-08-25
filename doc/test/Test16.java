@@ -1,4 +1,4 @@
-package com.wanghongen.demo.test;
+package com.code.test.test;
 
 /**
  * @author wanghongen
