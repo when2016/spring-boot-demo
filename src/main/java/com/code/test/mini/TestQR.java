@@ -23,20 +23,17 @@ public class TestQR {
     public static void main(String[] args) throws Exception {
 
         //获取token
-//        String result1 = get("https://api.weixin.qq.com/cgi-bin/token?grant_type=client_credential&appid=" + Constant.NATIVE_APP_ID + "&secret=" + Constant.NATIVE_APP_SECRET);
-//        String access_token = JSONObject.parseObject(result1).getString("access_token");
-        String access_token = "13_gvlqIPiY5ilaX_rQYIsU15_4RKYe6W0GtyOQGkRWhbV77kbh4f2-pQaTolHuaixl4rUaO2LUxo5Tbzq5XkA2ozkWfFCeFEDNyciOhu0pxDnK49L3CFj2roaCPQpLcc1ToE333fvxorg_LhuzNCAiAAADSQ";
-        access_token="13_fpX3rWJ6-2nWobobsgOwJmgZ8WRArjV7_0iYwqj8B23ibTQnQvMlJO-7GO09g-99fdDAso35Y7fnsk-s9wCjq81czOcCQ5gA9tfYgZcT30Fi3MwwZ-jqmUpUAaMCAPiAAAYWL";
+        String result1 = get("https://api.weixin.qq.com/cgi-bin/token?grant_type=client_credential&appid=" + Constant.NATIVE_APP_ID + "&secret=" + Constant.NATIVE_APP_SECRET);
+        String access_token = JSONObject.parseObject(result1).getString("access_token");
+        //String access_token = "13_gvlqIPiY5ilaX_rQYIsU15_4RKYe6W0GtyOQGkRWhbV77kbh4f2-pQaTolHuaixl4rUaO2LUxo5Tbzq5XkA2ozkWfFCeFEDNyciOhu0pxDnK49L3CFj2roaCPQpLcc1ToE333fvxorg_LhuzNCAiAAADSQ";
+       // access_token="13_fpX3rWJ6-2nWobobsgOwJmgZ8WRArjV7_0iYwqj8B23ibTQnQvMlJO-7GO09g-99fdDAso35Y7fnsk-s9wCjq81czOcCQ5gA9tfYgZcT30Fi3MwwZ-jqmUpUAaMCAPiAAAYWL";
         System.out.println(access_token);
         //if (StringUtils.iCheckTool.isString(access_token)) {
         System.out.println("token为");
         System.out.println(access_token);
         Map<String, Object> params = new HashMap<>();
-//        params.put("scene", "taskId:123_channelUid:456");
-        String scenne= System.currentTimeMillis() + "_" + System.currentTimeMillis();
-        params.put("scene", scenne);
-//        params.put("scene", "");
-//        params.put("page", "pages/index/index");
+        params.put("scene", "123456" + "_" + "789");
+        params.put("page", "pages/home/modules/task_details/index");
         params.put("width", 430);
 
         CloseableHttpClient httpClient = HttpClientBuilder.create().build();
@@ -44,6 +41,9 @@ public class TestQR {
         HttpPost httpPost = new HttpPost("https://api.weixin.qq.com/wxa/getwxacodeunlimit?access_token=" + access_token);
         httpPost.addHeader(HTTP.CONTENT_TYPE, "application/json");
         String body = JSON.toJSONString(params);
+        System.out.println("--------");
+        System.out.println(body);
+        System.out.println("--------");
         StringEntity entity;
         entity = new StringEntity(body);
         entity.setContentType("image/png");
