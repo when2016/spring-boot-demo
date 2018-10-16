@@ -8,7 +8,7 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
 public class TemplateSendUtils {
-
+    //https://blog.csdn.net/u010940300/article/details/50251841/
     public static void sendEvent(String userId, TemplateEnum templateEnum, Map data) {
         ExecutorService executor = Executors.newSingleThreadExecutor();
         executor.execute(() -> {
