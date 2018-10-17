@@ -44,6 +44,7 @@ public class Test {
         System.out.println("当前日期减一周:"+now.minusWeeks(1));
         System.out.println("今年的第100天是几月几号:" + now.withDayOfYear(52));
 
+        System.out.println("当前日期减8天:"+now.minusDays(8).toString());
 
         Map<String, Object> data = Maps.newHashMap();
         data.put("keyword1", TemplateMsg.item("步数赚钱"));
