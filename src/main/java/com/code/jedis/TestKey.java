@@ -12,7 +12,7 @@ public class TestKey {
         try {
             JedisApi jedisApi = new JedisApi();
             Jedis jedis = jedisApi.getRedis("127.0.0.1", 6379);
-            //jedis.select(0);
+            //jedis.select(1);
             //System.out.println("清除数据：" + jedis.flushDB());
             System.out.println("判断某个键是否存在：" + jedis.exists("1"));
             System.out.println("新增{1，a}键值对:" + jedis.set("1", "a"));
