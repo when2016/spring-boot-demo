@@ -1,0 +1,172 @@
+#{extends 'main-table.html' /}
+#{set title:'用户收益列表' /}
+#{set menuid:'menu-usermoneys-index' /}
+#{set 'table'}
+
+*{<div class="panel-body" style="padding-bottom:0px;">}*
+<div class="panel panel-default">
+    <div class="panel-body">
+        <form id="formSearch" class="form-horizontal">
+            <div class="form-group">
+                <label class="control-label col-sm-1" for="txt_search_userId">用户ID</label>
+                <div class="col-sm-3">
+                    <input type="text" class="form-control" id="txt_search_userId">
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+<table class="table table-bordered table-striped table-condensed" id="tb-page"></table>
+*{</div>}*
+#{/set}
+
+#{set 'moreScripts' }
+<script>
+    var ajaxLoading;
+    var editModal;
+
+    var api = {
+        reset: "@{UserMoneys.reset}"
+    };
+
+    function resetOne(id){
+        if (!id) {
+            alert("你给定的id号不存在");
+            return;
+        }
+        if(confirm("你确定要重新核算该记录吗？")) {
+            $.get(api.reset,{id:id}, function(resp){
+                console.log("id============"+id);
+                if (resp.ret >= 400){
+                    alert(resp.errmsg || "服务器异常");
+                    return;
+                }
+                window.location.reload();
+            });
+        }
+    }
+    $(document).ready(function(){
+        $("#editable-sample_new").hide();
+        $("#btn_table_expand").hide();
+        $("#btn_table_tool").hide();
+
+
+        //1.初始化Table
+        var oTable = new TableInit();
+        oTable.Init();
+
+        // 查询
+        $('#btn_query').click(function () {
+            var options = $('#tb-page').bootstrapTable('refresh', {url: '/UserMoneys/findPage'});
+        });
+
+        ajaxLoading = $(".ajax-loading-big");
+        editModal = $(".edit-modal");
+
+        $(".btn-create").click(function() {
+            editModal.find(".modal-body :input").val("");
+            editModal.find(".modal-title").html("新增");
+            editModal.modal("show");
+        });
+        editModal.on("shown.bs.modal", function (e) {
+            editModal.data("bootstrapValidator").resetForm();
+        });
+        editModal.find(".submit").click(function(){
+            var submitBtn = $(this);
+            editModal.data("bootstrapValidator").validate();
+            var pass = editModal.data("bootstrapValidator").isValid();
+            if (!pass) {
+                return;
+            }
+
+            submitBtn.button("loading");
+            var formData = new FormData();
+            editModal.find(":input[name]").each(function () {
+                formData.append($(this).attr("name"), $(this).val());
+            });
+            $.ajax({
+                url: api.save,
+                data: formData,
+                type: "POST",
+                cache: false,
+                contentType: false,
+                processData: false,
+                async: true,
+                dataType: "json",
+                success: function(resp){
+                    if (resp.ret >= 400){
+                        alert(resp.errmsg || "服务器异常");
+                        return;
+                    }
+                    window.location.reload();
+                }
+            });
+        });
+        editModal.bootstrapValidator({
+            fields: {
+                name: {
+                    validators: {
+                        notEmpty: {
+                            message: '请输入名称'
+                        }
+                    }
+                }
+            }
+        });
+    });
+
+    var TableInit = function () {
+        var oTableInit = new Object();
+        //初始化Table
+        oTableInit.Init = function () {
+            $('#tb-page').bootstrapTable({
+                url: '/UserMoneys/findPage',         //请求后台的URL（*）
+                method: 'get',                      //请求方式（*）
+                //toolbar: '#toolbar',                //工具按钮用哪个容器
+                striped: true,                      //是否显示行间隔色
+                cache: false,                       //是否使用缓存，默认为true，所以一般情况下需要设置一下这个属性（*）
+                pagination: true,                   //是否显示分页（*）
+                sortable: false,                     //是否启用排序
+                sortOrder: "asc",                   //排序方式
+                queryParams: oTableInit.queryParams,//传递参数（*）
+                sidePagination: "server",           //分页方式：client客户端分页，server服务端分页（*）
+                pageNumber: 1,                       //初始化加载第一页，默认第一页
+                pageSize: 10,                       //每页的记录行数（*）
+                pageList: [10, 25, 50, 100],       //可供选择的每页的行数（*）
+                search: false,                       //是否显示表格搜索，此搜索是客户端搜索，不会进服务端，所以，个人感觉意义不大
+                strictSearch: false,
+                showColumns: false,                  //是否显示所有的列
+                showRefresh: false,                  //是否显示刷新按钮
+                minimumCountColumns: 2,             //最少允许的列数
+                clickToSelect: false,                //是否启用点击选中行
+                // height: 500,                        //行高，如果没有设置height属性，表格自动根据记录条数觉得表格高度
+                uniqueId: "ID",                     //每一行的唯一标识，一般为主键列
+                showToggle: false,                    //是否显示详细视图和列表视图的切换按钮
+                cardView: false,                    //是否显示详细视图
+                detailView: false,                   //是否显示父子表
+                columns: [{field: 'id', title: 'ID'},
+                    {field: 'userId', title: '用户ID'},
+                    {field: 'coin', title: 'Bu币'},
+                    {field: 'amount', title: '收益余额(元)'},
+                    {field: 'friend', title: '邀请朋友数'},
+                    {field: 'step', title: '步数'},
+                    {field:'opertion',title:'操作'}
+                ]
+            });
+        };
+
+        //得到查询的参数
+        oTableInit.queryParams = function (params) {
+            var param = {
+                page: this.pageNumber - 1,   //页面大小
+                pSize: this.pageSize,         //页码,
+                userId: $("#txt_search_userId").val()
+            };
+            return param;
+        };
+        return oTableInit;
+    };
+
+
+</script>
+#{/set}

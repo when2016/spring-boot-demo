@@ -51,6 +51,7 @@ public class Test {
 
         System.out.println("----------------------data.size()=" + data.size());
         data.stream().forEach(map -> System.out.println(map.get("id") + "," + map.get("name")));
+
     }
 //
 //    public static List getRandomList(List paramList, int count) {
