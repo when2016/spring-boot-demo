@@ -1,15 +1,30 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>spring boot</title>
-	<script src="//cdn.bootcss.com/angular.js/1.5.6/angular.min.js"></script>
-	<script src="https://cdn.bootcss.com/sockjs-client/1.1.4/sockjs.min.js"></script>
-	<script src="https://cdn.bootcss.com/stomp.js/2.3.3/stomp.min.js"></script>
-
+    <title>spring boot</title>
 </head>
 <body ng-app="app" ng-controller="MainController">
 
 <h2>spring boot</h2>
+
+<script type="text/javascript" src="http://code.jquery.com/jquery-latest.js"></script>
+<script type="text/javascript">
+
+    $.ajax({
+        "type": "POST",
+        "url": "http://192.168.1.66:9001/login",
+        "contentType": "application/json",
+        "data": JSON.stringify({
+            "username": "admin",
+            "password": "admin"
+        }),
+        "success": function (msg) {
+            console.log(msg);
+            console.log("跨域测试");
+            $("#corsRes").text(msg);
+        }
+    });
+</script>
 
 </body>
 </html>

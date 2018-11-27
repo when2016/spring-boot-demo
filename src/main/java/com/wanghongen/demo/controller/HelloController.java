@@ -12,7 +12,7 @@ public class HelloController {
     return "Welcome to spring boot xxxxx ssss";
   }
 
-  @GetMapping("/")
+  @GetMapping("/aa")
   public String index() {
     return "王红恩：Hello World!";
   }
