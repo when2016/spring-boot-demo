@@ -15,6 +15,7 @@ public class IndexController {
 
     @RequestMapping(value = {"/", "/upload"}, method = RequestMethod.GET)
     public String index() {
+        System.out.println("IndexController");
         return "index";
     }
 

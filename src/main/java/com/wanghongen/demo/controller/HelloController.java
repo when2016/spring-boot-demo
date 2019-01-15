@@ -8,13 +8,16 @@ public class HelloController {
 
   @GetMapping("/hello")
   public String hello() {
-    System.out.println("///////////////////abcd////////////hello////////////");
-    return "Welcome to spring boot xxxxx ssss";
+    System.out.println("hello");
+    System.out.println();
+
+    return "Welcome to spring boot";
   }
 
   @GetMapping("/aa")
   public String index() {
-    return "王红恩：Hello World!";
+    System.out.println();
+    return "王红恩：Hello World!SSSSeeeeeeeeeeeeee";
   }
 
 
