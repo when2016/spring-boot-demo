@@ -1,4 +1,4 @@
-package com.lmcat.naturalspline.bak;
+package com.lmcat.constrainered;
 
 import org.apache.commons.math3.analysis.interpolation.AkimaSplineInterpolator;
 import org.apache.commons.math3.analysis.polynomials.PolynomialFunction;
@@ -20,6 +20,9 @@ public class TestMain {
         }
 
         System.out.println(2*3);
+        //https://jetcracker.wordpress.com/2014/12/26/constrained-cubic-spline-java/
+        ConstrainedSplineInterpolator splineInterpolator = new ConstrainedSplineInterpolator();
+        splineInterpolator.interpolate(xDouble,yDouble);
 
     }
 }
