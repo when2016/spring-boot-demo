@@ -1,5 +1,8 @@
 package com.lmcat.naturalspline;
 
+import com.alibaba.fastjson.JSONArray;
+import com.alibaba.fastjson.JSONObject;
+
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
@@ -45,12 +48,23 @@ public class Testspline {
 		//【1】 模拟 sin函数值  做初始化特定点（插值点或样条），  曲线将来就穿过下面几点	
 		//		0.1	1	2	3	4
 		//		0.099833417	0.841470985	0.909297427	0.141120008	0.61802
-		
-		pl.add(new PointStruct(0.1,0.099833417));
-		pl.add(new PointStruct(1,0.841470985));
-		pl.add(new PointStruct(2,0.909297427));
-		pl.add(new PointStruct(3,0.141120008));
-		pl.add(new PointStruct(4,0.61802));
+
+		JSONObject prevPoint=null;
+		JSONArray rightPoints = JSONArray.parseArray("[{\"x\":4.7,\"y\":225.3},{\"x\":21.8,\"y\":221.6},{\"x\":109.2,\"y\":201.9},{\"x\":169.9,\"y\":189},{\"x\":212.4,\"y\":180.5},{\"x\":240.9,\"y\":174.8},{\"x\":265.1,\"y\":169.9},{\"x\":280.8,\"y\":166.5},{\"x\":295.5,\"y\":164.5},{\"x\":306.7,\"y\":162.7},{\"x\":315.7,\"y\":161.5},{\"x\":323.6,\"y\":160.4},{\"x\":337.8,\"y\":158.7},{\"x\":347.9,\"y\":157.4},{\"x\":357.2,\"y\":155.9}]");
+		for(int i = 0; i < rightPoints.size(); i++) {
+
+			JSONObject it = rightPoints.getJSONObject(i);
+			if(prevPoint == null) {
+				prevPoint = it;
+				continue;
+			}
+			pl.add(new PointStruct(prevPoint.getBigDecimal("x").intValue(),prevPoint.getBigDecimal("y").intValue()));
+		}
+//		pl.add(new PointStruct(0.1,0.099833417));
+//		pl.add(new PointStruct(1,0.841470985));
+//		pl.add(new PointStruct(2,0.909297427));
+//		pl.add(new PointStruct(3,0.141120008));
+//		pl.add(new PointStruct(4,0.61802));
 	 
 		//【2】 添加 需要的未知点（新插值点）， 为了使曲线光滑  采用小的步长 填充在已知点之间
 		List <PointStruct> target=new  ArrayList<PointStruct>();		
