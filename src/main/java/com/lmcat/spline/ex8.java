@@ -114,8 +114,10 @@ public class ex8 {
         double y[] = {0.0, 1.6, 2.0, 2.0, 1.5, 0.0};
 
 
-
         double[][] result = value(x, y);
+
+
+
     }
 
 }

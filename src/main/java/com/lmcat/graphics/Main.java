@@ -77,7 +77,7 @@ public class Main {
             //drawArc(g);
 
             // 4. 椭圆
-            //drawOval(g);
+            drawOval(g);
 
             // 5. 图片
             //drawImage(g);
@@ -104,6 +104,13 @@ public class Main {
             int[] xPoints = new int[]{50, 100, 150, 200};
             int[] yPoints = new int[]{100, 120, 80, 100};
             int nPoints = 4;
+            for(int i=0;i<3;i++){
+                int k=5*i;
+                xPoints=new int[]{50+k, 100+k, 150+k, 200+k};
+                yPoints = new int[]{100+k, 120+k, 80+k, 100+k};
+                g2d.drawPolyline(xPoints, yPoints, nPoints);
+
+            }
             g2d.drawPolyline(xPoints, yPoints, nPoints);
 
             // 3. 两点绘制线段（设置线宽为5px）: 点(50, 150), 点(200, 150)
