@@ -68,8 +68,10 @@ public class TestSplineMain {
             frame.setTitle("4. 椭圆");
             Graphics2D g2d = (Graphics2D) g.create();
 
+
             g2d.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
-            //g2d.setColor(Color.RED);
+            g2d.setColor(Color.RED);
+            g2d.setStroke(new BasicStroke(50));
 
             // 1. 绘制一个圆: 圆的外切矩形 左上角坐标为(0, 0), 宽高为100
             //g2d.drawOval(0, 0, 100, 100);

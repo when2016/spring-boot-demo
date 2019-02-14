@@ -46,7 +46,7 @@ public class Spline {
                 second.x = dummy;
             }
             ArrayList<Point2D.Double> curve = new ArrayList<>();
-            for (double j = first.getX(); j <= second.getX(); j += 5) {
+            for (double j = first.getX(); j <= second.getX(); j += 0.1) {
                 curve.add(new Point2D.Double(j, cubicPolynomials.get(i).getImage(j)));
             }
             curvePoints.add(curve);
