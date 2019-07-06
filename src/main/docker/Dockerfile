@@ -9,7 +9,7 @@ RUN ln -snf /usr/share/zoneinfo/$TZ  /etc/localtime && echo $TZ > /etc/timezone
 
 VOLUME /tmp
 # 加入打包好的jar文件(xxxxx改为自己文件名)
-ADD app.jar app.jar
+ADD spring-boot-demo-1.0-SNAPSHOT.jar app.jar
 
 ENTRYPOINT ["java","-jar","app.jar"]
 
