@@ -464,8 +464,8 @@ public class TaskAudioProcessServiceImpl implements TaskAudioProcessService{
         //...其他参数参考类注释
         UploadManager uploadManager = new UploadManager(cfg);
         //...生成上传凭证，然后准备上传
-        String accessKey = "qxNdQUa8H6JrcpQR3FwXChghkXskpA_OuLkgHSUZ";
-        String secretKey = "1Ks-ewwx34ahGkF3Yvm0ATzFb8MGyCGb7ObI7NE2";
+        String accessKey = "";
+        String secretKey = "";
         String bucket = "https-download";
 
         try {
@@ -659,8 +659,8 @@ class UploadThread implements Runnable {
         //...其他参数参考类注释
         UploadManager uploadManager = new UploadManager(cfg);
         //...生成上传凭证，然后准备上传
-        String accessKey = "qxNdQUa8H6JrcpQR3FwXChghkXskpA_OuLkgHSUZ";
-        String secretKey = "1Ks-ewwx34ahGkF3Yvm0ATzFb8MGyCGb7ObI7NE2";
+        String accessKey = "";
+        String secretKey = "";
         String bucket = "https-download";
 
         try {

@@ -32,8 +32,8 @@ public class OssUploaderController {
   @RequestMapping(value = "/getPolicy", method = {RequestMethod.GET, RequestMethod.POST})
   public void getPostObjectPolicy(HttpServletRequest request, HttpServletResponse response) {
     String endpoint = "oss-cn-beijing.aliyuncs.com";
-    String accessId = "LTAIc1R15LLE7COe";
-    String accessKey = "zZa98mFIiyzDJY6kcE6Yrl6lpAUMmC";
+    String accessId = "";
+    String accessKey = "";
     String bucket = "wanghongen";
     String dir = "images/";
     String host = "http://" + bucket + "." + endpoint;
