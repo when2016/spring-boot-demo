@@ -60,5 +60,7 @@ public class Test {
             System.out.println(goodsId);
         }
 
+        System.out.println(System.currentTimeMillis() / 1000);
+
     }
 }

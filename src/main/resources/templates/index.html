@@ -11,14 +11,18 @@
 <script type="text/javascript">
 
     $.ajax({
-        "type": "POST",
-        "url": "http://a.longmao.com:8081/contact/add",
-        "data": JSON.stringify({
-            "company": "admin",
-            "content": "contentadmin",
-            "mobile":"13811244057"
+        type: "POST",
+        //url: "http://127.0.0.1/v1/api/safe/yundata/easydl/task/list",
+        url: "http://127.0.0.1:8081/v1/api/unsafe/yundata/easyai/retrain/check",
+        headers: {
+            "LongMao-User": 2981751
+        },
+        data: JSON.stringify({
+            "task_id": 36,
+            "version":1,
+            "image_path":"check/aaa/aaa"
         }),
-        "success": function (msg) {
+        success: function (msg) {
             console.log(msg);
             console.log("跨域测试");
             alert(msg)

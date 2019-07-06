@@ -71,7 +71,7 @@ public class TestSplineMain {
 
             g2d.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
             g2d.setColor(Color.RED);
-            g2d.setStroke(new BasicStroke(50));
+            g2d.setStroke(new BasicStroke(10));
 
             // 1. 绘制一个圆: 圆的外切矩形 左上角坐标为(0, 0), 宽高为100
             //g2d.drawOval(0, 0, 100, 100);
@@ -112,17 +112,17 @@ public class TestSplineMain {
 //            }
 
             Color color = colors[0 % colors.length];
-            splinePointList.add(new SplinePoint(866,185,color));
+            splinePointList.add(new SplinePoint(465,216,color));
             color = colors[1 % colors.length];
-            splinePointList.add(new SplinePoint(967,719,color));
+            splinePointList.add(new SplinePoint(507,406,color));
             color = colors[2 % colors.length];
-            splinePointList.add(new SplinePoint(627,702,color));
-            color = colors[3 % colors.length];
-            splinePointList.add(new SplinePoint(83,194,color));
-            color = colors[4 % colors.length];
-            splinePointList.add(new SplinePoint(799,225,color));
-            color = colors[5 % colors.length];
-            splinePointList.add(new SplinePoint(654,439,color));
+            splinePointList.add(new SplinePoint(730,457,color));
+//            color = colors[3 % colors.length];
+//            splinePointList.add(new SplinePoint(83,194,color));
+//            color = colors[4 % colors.length];
+//            splinePointList.add(new SplinePoint(799,225,color));
+//            color = colors[5 % colors.length];
+//            splinePointList.add(new SplinePoint(654,439,color));
 
 
 
