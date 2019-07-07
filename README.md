@@ -1,3 +1,11 @@
+
+##
+docker run -t -d -i --name=springboot-demo -p 10090:80 wanghongen/springboot-demo:v1
+docker run -t -d -i --restart=always --name=springboot-demo -p 10090:80 wanghongen/springboot-demo:v1
+
+
+
+
 ####aliyun oss
 https://github.com/lichenyigit/java.aliyun.oss.demo
 
