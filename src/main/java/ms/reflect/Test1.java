@@ -1,4 +1,4 @@
-package ms.refect;
+package ms.reflect;
 
 import java.lang.reflect.Constructor;
 import java.lang.reflect.Field;
