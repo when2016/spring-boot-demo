@@ -221,14 +221,7 @@
             <artifactId>pagehelper</artifactId>
             <version>4.1.4</version>
         </dependency>
-
-        <!-- https://mvnrepository.com/artifact/org.csource/fastdfs-client-java -->
-        <dependency>
-            <groupId>org.csource</groupId>
-            <artifactId>fastdfs-client-java</artifactId>
-            <version>1.27-RELEASE</version>
-        </dependency>
-
+        
     </dependencies>
 
 
