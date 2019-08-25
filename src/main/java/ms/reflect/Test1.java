@@ -28,5 +28,13 @@ public class Test1 {
             System.out.println(method);
         }
 
+        System.out.println("===============");
+        final byte bt1 = 1;
+        final byte bt2 = 2;
+        byte bt3 = bt1 + bt2;
+        System.out.println(bt1);
+        System.out.println(bt2);
+        System.out.println(bt3);
+
     }
 }
