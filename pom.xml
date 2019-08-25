@@ -206,6 +206,28 @@
             <version>1.18.8</version>
             <scope>provided</scope>
         </dependency>
+        <dependency>
+            <groupId>com.baomidou</groupId>
+            <artifactId>mybatis-plus-boot-starter</artifactId>
+            <version>3.0.6</version>
+        </dependency>
+        <dependency>
+            <groupId>com.alibaba</groupId>
+            <artifactId>fastjson</artifactId>
+            <version>1.2.15</version>
+        </dependency>
+        <dependency>
+            <groupId>com.github.pagehelper</groupId>
+            <artifactId>pagehelper</artifactId>
+            <version>4.1.4</version>
+        </dependency>
+
+        <!-- https://mvnrepository.com/artifact/org.csource/fastdfs-client-java -->
+        <dependency>
+            <groupId>org.csource</groupId>
+            <artifactId>fastdfs-client-java</artifactId>
+            <version>1.27-RELEASE</version>
+        </dependency>
 
     </dependencies>
 
