@@ -4,7 +4,7 @@ server:
 #mysql
 spring:
   datasource:
-    url: jdbc:mysql://localhost:3306/jobzp?useUnicode=true&characterEncoding=utf8
+    url: jdbc:mysql://188.131.169.24:13306/jobzp?useUnicode=true&characterEncoding=utf8
     username: root
     password: 123456
     driver-class-name: com.mysql.jdbc.Driver
@@ -23,3 +23,17 @@ logging:
       shiyan:
         demo:
           mapper: debug
+
+#启动测试之前请替换如下 XXX 为您的配置
+rocketmq:
+  accessKey:
+  secretKey:
+  #nameSrvAddr: http://MQ_INST_1977551927540916_Bbo0SnMA.cn-beijing.mq-internal.aliyuncs.com:8080
+  nameSrvAddr: http://1977551927540916.mqrest.cn-beijing.aliyuncs.com
+  topic: wanghongen-topic
+  groupId: GID_string_consumer
+  tag: tag1
+  orderTopic: XXX
+  orderGroupId: XXX
+  orderTag: orderTag1
+

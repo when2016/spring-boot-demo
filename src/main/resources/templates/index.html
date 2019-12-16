@@ -13,14 +13,16 @@
     $.ajax({
         type: "POST",
         //url: "http://127.0.0.1/v1/api/safe/yundata/easydl/task/list",
-        url: "http://127.0.0.1:8081/v1/api/unsafe/yundata/easyai/retrain/check",
+        //url: "http://127.0.0.1:8081/v1/api/unsafe/yundata/easyai/retrain/check",
+        url: "http://localhost:8765/api/auth/jwt/token",
         headers: {
             "LongMao-User": 2981751
         },
+        contentType:"application/json",
+        datatype:"json",
         data: JSON.stringify({
-            "task_id": 36,
-            "version":1,
-            "image_path":"check/aaa/aaa"
+            "username": "admin",
+            "password":"admin"
         }),
         success: function (msg) {
             console.log(msg);
