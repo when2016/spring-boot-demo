@@ -9,6 +9,10 @@ import java.io.StringReader;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * https://blog.csdn.net/qilin001cs/article/details/88850887?utm_medium=distribute.pc_relevant.none-task-blog-baidujs-8
+ *
+ */
 public class Fenci {
 
     public static Object[] start(String text) {
@@ -30,7 +34,9 @@ public class Fenci {
     }
 
     public static void main(String args[]) {
-        Object arr[] = start("这些沙糖桔怎么回事？");
+        //Object arr[] = start("这些沙糖桔怎么回事？");
+        //Object arr[] = start("中华人民共和国");
+        Object arr[] = start("国内也有些专门做全文检索业务的公司");
         System.out.println(new Gson().toJson(arr));
     }
 
