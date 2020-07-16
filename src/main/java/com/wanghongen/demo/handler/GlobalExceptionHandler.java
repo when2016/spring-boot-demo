@@ -1,4 +1,4 @@
-package com.wanghongen.demo.exception;
+package com.wanghongen.demo.handler;
 
 import com.wanghongen.demo.base.BaseResult;
 import com.wanghongen.demo.base.WebResult;

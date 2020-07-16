@@ -1,5 +1,6 @@
-package com.wanghongen.demo.exception;
+package com.wanghongen.demo.handler;
 
+import com.wanghongen.demo.exception.BusinessException;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseBody;
