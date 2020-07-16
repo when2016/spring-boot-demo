@@ -1,6 +1,7 @@
 server:
   servlet:
     context-path: /sys
+  port: 8888
 #mysql
 spring:
   datasource:
@@ -37,3 +38,6 @@ rocketmq:
   orderGroupId: XXX
   orderTag: orderTag1
 
+
+gwf:
+  name: aaaaa

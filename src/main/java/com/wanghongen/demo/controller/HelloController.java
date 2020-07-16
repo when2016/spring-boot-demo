@@ -1,27 +1,25 @@
-//package com.wanghongen.demo.controller;
-//
-//import org.springframework.web.bind.annotation.GetMapping;
-//import org.springframework.web.bind.annotation.PostMapping;
-//import org.springframework.web.bind.annotation.RestController;
-//
-//@RestController
-//public class HelloController {
-//
-//
-//  @GetMapping("/hello")
-//  public String hello() {
-//    return "hello";
-//  }
-//  @PostMapping("/hello")
-//  public String hello2() {
-//    return "post hello";
-//  }
-//
-//  @GetMapping("/aa")
-//  public String index() {
-//    System.out.println();
-//    return "王红恩：Hello World!SSSSeeeeeeeeeeeeee";
-//  }
-//
-//
-//}
+package com.wanghongen.demo.controller;
+
+import com.wanghongen.demo.exception.BusinessException;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+@RestController
+public class HelloController {
+    @Value("${gwf.name}")
+    private String msg;
+
+    @RequestMapping("/hello")
+    public String hello() {
+        int num = 1 / 0;
+        return this.msg;
+    }
+
+    @RequestMapping("/hello2")
+    public String hello2() {
+        //int num = 1 / 0;
+        throw new BusinessException("100", "密码错误");
+        ///return this.msg;
+    }
+}
