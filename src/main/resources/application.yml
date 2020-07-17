@@ -9,6 +9,12 @@ spring:
     username: root
     password: 123456
     driver-class-name: com.mysql.jdbc.Driver
+  cloud:
+    alicloud:
+      ans:
+        server-list: localhost
+        server-port: 8080
+
 
 mybatis-plus:
   mapper-locations: classpath:/mapper/*.xml
@@ -25,18 +31,6 @@ logging:
         demo:
           mapper: debug
 
-#启动测试之前请替换如下 XXX 为您的配置
-rocketmq:
-  accessKey:
-  secretKey:
-  #nameSrvAddr: http://MQ_INST_1977551927540916_Bbo0SnMA.cn-beijing.mq-internal.aliyuncs.com:8080
-  nameSrvAddr: http://1977551927540916.mqrest.cn-beijing.aliyuncs.com
-  topic: wanghongen-topic
-  groupId: GID_string_consumer
-  tag: tag1
-  orderTopic: XXX
-  orderGroupId: XXX
-  orderTag: orderTag1
 
 
 gwf:
