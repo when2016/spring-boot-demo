@@ -8,6 +8,9 @@ import com.aliyuncs.exceptions.ClientException;
 import com.aliyuncs.profile.DefaultProfile;
 import com.aliyuncs.profile.IClientProfile;
 
+/**
+ * https://github.com/youthcity/graph-captcha
+ */
 public class TestAfsCheck {
 
 
@@ -28,7 +31,7 @@ public class TestAfsCheck {
         request.setSig("xxx");// 必填参数，从前端获取，不可更改
         request.setToken("xxx");// 必填参数，从前端获取，不可更改
         request.setScene("xxx");// 必填参数，从前端获取，不可更改
-        request.setAppKey("xxx");// 必填参数，后端填写
+        request.setAppKey("FFFF0N00000000009878");// 必填参数，后端填写
         request.setRemoteIp("xxx");// 必填参数，后端填写
 
         try {
