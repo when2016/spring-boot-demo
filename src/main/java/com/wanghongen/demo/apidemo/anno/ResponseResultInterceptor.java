@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.lang.reflect.Method;
 
+//请求拦截器
 @Slf4j
 @Component
 public class ResponseResultInterceptor implements HandlerInterceptor {
