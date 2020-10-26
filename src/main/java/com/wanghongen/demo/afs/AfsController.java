@@ -20,7 +20,7 @@ public class AfsController {
 
     @Value("${aliyun.huakuai.accessKeyId}")
     private String accessKeyId;
-    @Value("${aliyun.huakuai.accessKeyId}")
+    @Value("${aliyun.huakuai.accessKeySecret}")
     private String accessKeySecret;
 
 
@@ -29,7 +29,7 @@ public class AfsController {
     public String test(HttpServletRequest request, @RequestBody AfsAuth afsAuth) throws ClientException {
 
         //验签结果
-        String checkSign = "验签失败";
+        String checkSignResult = "验签失败";
 
 
         System.out.println("前端参数================");
@@ -37,6 +37,7 @@ public class AfsController {
         String sign = afsAuth.getSign();
         String token = afsAuth.getToken();
         String scene = afsAuth.getScene();
+        String appKey = afsAuth.getAppKey();
 
         System.out.println("sessionId==" + sessionId);
         System.out.println("sign==" + sign);
@@ -45,8 +46,8 @@ public class AfsController {
 
         System.out.println("后端参数================");
         String ip = CusAccessObjectUtil.getIpAddress(request);
-        System.out.println("accessKeySecret==" + accessKeySecret);
         System.out.println("accessKeyId==" + accessKeyId);
+        System.out.println("accessKeySecret==" + accessKeySecret);
         System.out.println("ip==" + ip);
 
 
@@ -62,22 +63,27 @@ public class AfsController {
         authenticateSigRequest.setToken(token);// 必填参数，从前端获取，不可更改
         authenticateSigRequest.setScene(scene);// 必填参数，从前端获取，不可更改
 
-        authenticateSigRequest.setAppKey("FFFF0N00000000009878");// 必填参数，后端填写
+        authenticateSigRequest.setAppKey(appKey);// 必填参数，后端填写
         authenticateSigRequest.setRemoteIp(ip);// 必填参数，后端填写
 
         try {
             AuthenticateSigResponse response = client.getAcsResponse(authenticateSigRequest);
+
             if (response.getCode() == 100) {
-                System.out.println("验签通过");
+                checkSignResult = "验签通过";
             } else {
-                System.out.println("验签失败");
+                checkSignResult = "验签失败";
             }
-            // TODO
+            System.out.println(response.getCode());
+            System.out.println(response.getDetail());
+            System.out.println(response.getMsg());
+            System.out.println(response.getRequestId());
         } catch (Exception e) {
             e.printStackTrace();
         }
 
-        return checkSign;
+        System.out.println(checkSignResult);
+        return checkSignResult;
     }
 
 }

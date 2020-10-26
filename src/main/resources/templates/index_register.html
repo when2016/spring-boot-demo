@@ -15,12 +15,18 @@
 <div id="your-dom-id" class="nc-container"></div> <!--No-Captcha渲染的位置，其中 class 中必须包含 nc-container-->
 
 <script type="text/javascript">
-        var nc_token = ["FFFF0N00000000009878", (new Date()).getTime(), Math.random()].join(':');
+
+        //应用类型标识。它和使用场景标识（scene字段）一起决定了滑动验证的业务场景与后端对应使用的策略模型。
+        //您可以在人机验证控制台的配置管理页签找到对应的appkey字段值，请务必正确填写。
+        var nc_appKey = "FFFF0N00000000009878";
+        var nc_scene = "nc_message";
+        var nc_token = [nc_appKey, (new Date()).getTime(), Math.random()].join(':');
+
         var NC_Opt =
         {
             renderTo: "#your-dom-id",
-            appkey: "FFFF0N00000000009878",
-            scene: "nc_register",
+            appkey: nc_appKey,
+            scene: nc_scene,
             token: nc_token,
             customWidth: 300,
             trans:{"key1":"code0"},
@@ -57,7 +63,8 @@
                         "token": nc_token,
                         "sessionId": data.csessionid,
                         "sign": data.sig,
-                        "scene": "nc_register"
+                        "scene": nc_scene,
+                        "appKey": nc_appKey
 
                     }),
                     success: function (msg) {

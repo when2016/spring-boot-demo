@@ -16,6 +16,7 @@ public class AfsAuth implements Serializable {
     private String sign;
     private String token;
     private String scene;
+    private String appKey;
 
 
 }
