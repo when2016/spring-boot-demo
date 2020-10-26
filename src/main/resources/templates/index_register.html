@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+    <title>人机验证 滑动验证 服务端代码集成</title>
     <meta charset="utf-8"/>
     <!-- 国内使用 -->
     <script type="text/javascript" charset="utf-8" src="http://g.alicdn.com/sd/ncpc/nc.js?t=2015052012"></script>
@@ -18,8 +19,9 @@
 
         //应用类型标识。它和使用场景标识（scene字段）一起决定了滑动验证的业务场景与后端对应使用的策略模型。
         //您可以在人机验证控制台的配置管理页签找到对应的appkey字段值，请务必正确填写。
-        var nc_appKey = "FFFF0N00000000009878";
-        var nc_scene = "nc_message";
+        var nc_appKey = "FFFF0N000000000098F4";
+        //var nc_appKey = "FFFF0N00000000009878"; //自已的
+        var nc_scene = "nc_register";
         var nc_token = [nc_appKey, (new Date()).getTime(), Math.random()].join(':');
 
         var NC_Opt =
@@ -68,6 +70,7 @@
 
                     }),
                     success: function (msg) {
+                        alert(msg);
                         console.log("msg==="+msg);
                     }
                 });

@@ -25,5 +25,18 @@ public class IndexController {
         return "index";
     }
 
+    @RequestMapping(value = {"/afsregister"}, method = RequestMethod.GET)
+    public String afsRegister() {
+        try {
+            System.out.println("IndexController");
+
+            StringBuilder builder = new StringBuilder();
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return "index_register";
+    }
+
 
 }

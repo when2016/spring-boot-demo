@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>spring boot</title>
+</head>
+<body ng-app="app" ng-controller="MainController">
+
+<h2>spring boot index.html</h2>
+
+<!--<script type="text/javascript" src="http://code.jquery.com/jquery-latest.js"></script>-->
+<script src="https://ajax.aspnetcdn.com/ajax/jquery/jquery-3.5.1.min.js"></script>
+<script type="text/javascript">
+
+    $.ajax({
+        type: "POST",
+        //url: "http://127.0.0.1/v1/api/safe/yundata/easydl/task/list",
+        //url: "http://127.0.0.1:8081/v1/api/unsafe/yundata/easyai/retrain/check",
+        url: "http://localhost:8888/api/auth/jwt/token",
+        headers: {
+            "LongMao-User": 2981751
+        },
+        contentType:"application/json",
+        datatype:"json",
+        data: JSON.stringify({
+            "username": "admin",
+            "password":"admin"
+        }),
+        success: function (msg) {
+            console.log(msg);
+            console.log("跨域测试");
+            alert(msg)
+            $("#corsRes").text(msg);
+        }
+    });
+</script>
+
+</body>
+</html>
