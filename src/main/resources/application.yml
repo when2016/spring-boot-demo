@@ -46,6 +46,3 @@ aliyun:
   huakuai:
     accessKeyId: aa
     accessKeySecret: bb
-    #自已key
-#    accessKeyId: LTAINEaGEfPqLA5B
-#    accessKeySecret: pvSN09pFpCHE8sax1cGfhDLkuNq3uK
