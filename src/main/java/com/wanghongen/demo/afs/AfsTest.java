@@ -8,12 +8,12 @@ import com.aliyuncs.profile.DefaultProfile;
 import com.aliyuncs.profile.IClientProfile;
 
 public class AfsTest {
-    public static void main(String[] args) {
-
+    public static void main(String[] args) throws Exception {
+        test();
     }
 
 
-    public void test() throws Exception {
+    public static void test() throws Exception {
 
         String regionid = "cn-hangzhou";
         String accessKeyId = "*** Provide your AccessKeyId ***";

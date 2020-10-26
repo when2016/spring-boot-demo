@@ -41,3 +41,9 @@ rocketmq:
 
 gwf:
   name: aaaaa
+
+aliyun:
+  huakuai:
+    accessKeyId: aa
+    accessKeySecret: bb
+    regionId: cn-qingdao
