@@ -20,7 +20,6 @@
         //应用类型标识。它和使用场景标识（scene字段）一起决定了滑动验证的业务场景与后端对应使用的策略模型。
         //您可以在人机验证控制台的配置管理页签找到对应的appkey字段值，请务必正确填写。
         var nc_appKey = "FFFF0N000000000098F4";
-        //var nc_appKey = "FFFF0N00000000009878"; //自已的
         var nc_scene = "nc_register";
         var nc_token = [nc_appKey, (new Date()).getTime(), Math.random()].join(':');
 
@@ -56,7 +55,7 @@
                 $.ajax({
                     type: "POST",
                     //url: "http://localhost:8888/afs/test",
-                    url: "http://localhost:8090/aliyun/afs/nocaptcha",
+                    url: "http://localhost:8040/jobtbao-oauth-srv/v1/oauth/unsafe/afs/nocaptcha",
                     headers: {
                         "afs-token": nc_token
                     },
@@ -67,15 +66,14 @@
                         "sessionId": data.csessionid,
                         "sign": data.sig,
                         "scene": nc_scene,
-                        "appKey": nc_appKey,
-                        "ip": "172.20.202.108"
+                        "appKey": nc_appKey
 
                     }),
-                    success: function (msg) {
-                        console.log("msg==="+msg.msg);
-                        console.log("code==="+msg.code);
-                        //alert(msg);
-                        console.log("msg==="+msg);
+                    success: function (obj) {
+                        console.log("code==="+obj.code);
+                        console.log("obj.object.code==="+obj.object.code);
+                        console.log("obj.object.msg==="+obj.object.msg);
+
                     }
                 });
 
